@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "926003563634",
+    "project_id": "cs242-148403"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926003563634:android:64f253538716801c",
+        "android_client_info": {
+          "package_name": "com.chris.illinibus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926003563634-ehtptsu6p47p170ce1aclbj1kmiakhba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chris.illinibus",
+            "certificate_hash": "CB29D11D9129BF1990C0F7F50B1F0E594E54B8BD"
+          }
+        },
+        {
+          "client_id": "926003563634-6qp52s0jsp42rufsaj6d8v0ob2rdbkf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL9AlK-okIfMOcpWDTVl5JhtII5EPKMsA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
