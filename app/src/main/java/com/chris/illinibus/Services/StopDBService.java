@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Database service for Stop table to retrieve stop information
  * Created by Chris on 11/14/16.
  */
 
@@ -38,6 +39,10 @@ public class StopDBService {
         mDBHelper.close();
     }
 
+    /**
+     * Get a list of stops from the database
+     * @return
+     */
     public List<Stop> getStops() {
         String sortOrder = StopEntry.COLUMN_NAME + " ASC";
         Cursor c = mDatabase.query(StopEntry.TABLE_NAME, PROJECTION, null, null, null, null, sortOrder);

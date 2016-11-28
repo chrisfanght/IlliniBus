@@ -225,7 +225,7 @@ public class StartActivity extends AppCompatActivity implements GoogleApiClient.
      * @param result
      */
     private void handleSignInResult(GoogleSignInResult result) {
-        Log.v("SIGNIN STATUS", "SIGNIN RESULT: " + result.isSuccess());
+        Log.v("SIGNIN STATUS", "SIGNIN RESULT: " + result.getStatus().getStatusMessage());
         Log.v("SIGNIN STATUS", "SIGNIN CODE: " + result.getStatus().getStatusCode());
         if (result.isSuccess()) {
             // Signed in successfully

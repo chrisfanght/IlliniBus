@@ -1,6 +1,7 @@
 package com.chris.illinibus.Models;
 
 /**
+ * Stop information in the databse
  * Created by Chris on 11/14/16.
  */
 
@@ -10,6 +11,7 @@ public class Stop {
     String name;
     Double latitude;
     Double longitude;
+    Double distance;
 
     public String getId() {
         return id;
@@ -50,4 +52,13 @@ public class Stop {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
+
 }

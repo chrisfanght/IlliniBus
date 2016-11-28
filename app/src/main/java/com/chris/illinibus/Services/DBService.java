@@ -5,6 +5,7 @@ import android.content.Context;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 /**
+ * Connect to SQLite android local database
  * Created by Chris on 11/5/16.
  */
 

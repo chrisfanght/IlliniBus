@@ -1,6 +1,7 @@
 package com.chris.illinibus.Models;
 
 /**
+ * Column names for Stop table in the database
  * Created by Chris on 11/14/16.
  */
 
