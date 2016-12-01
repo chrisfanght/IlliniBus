@@ -22,6 +22,9 @@ import com.chris.illinibus.Services.StopDBService;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Main activity contains 4 different fragments using a view pager
+ */
 public class MainActivity extends AppCompatActivity {
     static final int NUM_PAGERS = 4;
     static final int METER_TO_MILE = 1609;

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * A route request for push notification and main page countdown
  * Created by chrisfang on 11/28/16.
  */
 

@@ -53,6 +53,9 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<Ro
         initNetwork();
     }
 
+    /**
+     * Initialize a stop variable based on Bundle information from MainActivity
+     */
     private void initStopData() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -68,6 +71,10 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<Ro
         getSupportActionBar().setTitle(mStop.getName());
     }
 
+    /**
+     * Set up google map api for the specific stop
+     * @param savedInstanceState
+     */
     private void initGoogleMap(Bundle savedInstanceState) {
         mMapView.onCreate(savedInstanceState);
 
@@ -99,6 +106,9 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<Ro
         });
     }
 
+    /**
+     * Get bus departure information from cumtd API
+     */
     private void initNetwork() {
         IlliniBusApplication myApplication = (IlliniBusApplication) getApplication();
         BusAPI busAPI = myApplication.getBusNetworkService();
@@ -106,6 +116,11 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<Ro
         call.enqueue(this);
     }
 
+    /**
+     * Initialize stops recycler view after getting response from the api
+     * @param call
+     * @param response
+     */
     @Override
     public void onResponse(Call<RouteResponse> call, Response<RouteResponse> response) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

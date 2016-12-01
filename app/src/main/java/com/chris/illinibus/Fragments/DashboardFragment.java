@@ -26,6 +26,7 @@ import com.chris.illinibus.R;
 import java.util.Calendar;
 
 /**
+ * Main fragment containing nearby stops and requested stop count down
  * Created by Chris on 11/5/16.
  */
 
@@ -58,6 +59,9 @@ public class DashboardFragment extends Fragment {
         initRequestRoute();
     }
 
+    /**
+     * List 10 nearest stops based on user's current location
+     */
     private void initNearestStopsList() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mNearestStopsList.setLayoutManager(layoutManager);
@@ -67,6 +71,9 @@ public class DashboardFragment extends Fragment {
         mNearestStopsList.setAdapter(stopAdapter);
     }
 
+    /**
+     * When there's a requested route in the application, initialize the layout for it
+     */
     private void initRequestRoute() {
         IlliniBusApplication myApplication = (IlliniBusApplication) getActivity().getApplication();
         if (myApplication.existsRouteRequest()) {
@@ -88,6 +95,10 @@ public class DashboardFragment extends Fragment {
         }
     }
 
+    /**
+     * Initialize a counter for the scheduled departure time of a requested stop
+     * @param routeRequest
+     */
     private void initCounter(RouteRequest routeRequest) {
         final long timeRemaining = routeRequest.getExpectedDeparture().getTime()
                 - Calendar.getInstance().getTime().getTime();
@@ -95,6 +106,7 @@ public class DashboardFragment extends Fragment {
             mCountDownTimer.cancel();
         }
 
+        // start counting down to the scheduled departure time
         mCountDownTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -109,6 +121,8 @@ public class DashboardFragment extends Fragment {
             public void onFinish() {
                 ((TextView) mRequestedStop.findViewById(R.id.route_time))
                         .setText("due");
+
+                // Hide request card 5 second after the bus is due
                 Handler handler = new Handler(Looper.getMainLooper());
                 final Runnable r = new Runnable() {
                     public void run() {
@@ -124,6 +138,10 @@ public class DashboardFragment extends Fragment {
         }.start();
     }
 
+    /**
+     * Start google map service to get direction to the requested stop
+     * @param routeRequest
+     */
     private void initOnClickListener(final RouteRequest routeRequest) {
         mRequestedStop.setOnClickListener(new View.OnClickListener() {
             @Override

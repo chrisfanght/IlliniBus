@@ -15,6 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
+ * Shared data for the application
  * Created by Chris on 11/9/16.
  */
 
@@ -91,6 +92,10 @@ public class IlliniBusApplication extends Application {
         mStopList.addAll(stopList);
     }
 
+    /**
+     * Sort the stops list based on distance to get the nearby stops
+     * @return
+     */
     public List<Stop> getNearbyStopList() {
         if (mNearbyList == null) {
             mNearbyList = new ArrayList<>();
@@ -125,6 +130,10 @@ public class IlliniBusApplication extends Application {
         return mRouteRequest;
     }
 
+    /**
+     * Set up a routeRequest
+     * @param routeRequest
+     */
     public void setRouteRequest(RouteRequest routeRequest) {
         mRouteRequest = routeRequest;
     }

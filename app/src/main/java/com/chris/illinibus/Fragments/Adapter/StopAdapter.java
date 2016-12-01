@@ -17,6 +17,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 /**
+ * Recycler View adapter for bus stops in dashboard fragment and stops list fragment
  * Created by Chris on 11/14/16.
  */
 
@@ -41,6 +42,11 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    /**
+     * Bind the view for a single list item view
+     * @param viewHolder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.mStopName.setText(mStopList.get(position).getName());
@@ -61,6 +67,10 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.ViewHolder> {
             v.setOnClickListener(this);
         }
 
+        /**
+         * Click on a single stop list view will start a stop detail activity
+         * @param view
+         */
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(mContext, StopDetailActivity.class);

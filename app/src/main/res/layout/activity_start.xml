@@ -38,23 +38,23 @@
             <Button
                 android:id="@+id/login_button"
                 style="?metaButtonBarButtonStyle"
-                android:foreground="?attr/selectableItemBackground"
-                android:background="#33b5e5"
-                android:textColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Login" />
+                android:background="#33b5e5"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Login"
+                android:textColor="#ffffff" />
 
             <Button
                 android:id="@+id/skip_button"
                 style="?metaButtonBarButtonStyle"
-                android:foreground="?attr/selectableItemBackground"
-                android:textColor="#33b5e5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Skip" />
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Skip"
+                android:textColor="#33b5e5" />
 
         </LinearLayout>
     </FrameLayout>

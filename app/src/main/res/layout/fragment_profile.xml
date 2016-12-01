@@ -36,12 +36,12 @@
 
     <Button
         android:id="@+id/account_button"
-        android:foreground="?attr/selectableItemBackground"
-        android:background="#33b5e5"
-        android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:layout_gravity="bottom"/>
+        android:background="#33b5e5"
+        android:foreground="?attr/selectableItemBackground"
+        android:textColor="#ffffff" />
 
 </FrameLayout>

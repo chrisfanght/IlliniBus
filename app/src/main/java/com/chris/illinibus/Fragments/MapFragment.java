@@ -25,6 +25,7 @@ import java.util.List;
 import static android.content.Context.LOCATION_SERVICE;
 
 /**
+ * Map Fragment using Google Maps API to show all of the stop locations
  * Created by Chris on 11/9/16.
  */
 
@@ -65,6 +66,7 @@ public class MapFragment extends Fragment {
 
                 Location currLocation = getCurrentLocation();
                 if (currLocation != null) {
+                    // Zoom in Google map to user's current location
                     CameraPosition cameraPosition = CameraPosition
                             .builder()
                             .target(new LatLng(currLocation.getLatitude(), currLocation.getLongitude()))
@@ -73,6 +75,8 @@ public class MapFragment extends Fragment {
                     List<Stop> stopList = ((IlliniBusApplication) getActivity()
                             .getApplication())
                             .getStopList();
+
+                    // Add markers to the map to show locations of stops
                     for (Stop stop : stopList) {
                         mGoogleMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(stop.getLatitude(), stop.getLongitude()))
@@ -83,6 +87,10 @@ public class MapFragment extends Fragment {
                 }
             }
 
+            /**
+             * Get current location of the user based on the last best location point
+             * @return current latitude and longitude of the user
+             */
             private Location getCurrentLocation() {
                 mLocationManager = (LocationManager) getActivity().getApplicationContext().getSystemService(LOCATION_SERVICE);
                 List<String> providers = mLocationManager.getProviders(true);

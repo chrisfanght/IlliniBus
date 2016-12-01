@@ -17,6 +17,9 @@ import java.util.List;
  */
 
 public class StopDBService {
+    /**
+     * Columns for the stops table
+     */
     private final static String[] PROJECTION = {
             StopEntry.COLUMN_ID,
             StopEntry.COLUMN_CODE,
@@ -59,6 +62,11 @@ public class StopDBService {
         return stopList;
     }
 
+    /**
+     * Parse data from cursor to a stop object
+     * @param c
+     * @return
+     */
     private Stop cursorToStop(Cursor c) {
         Stop stop = new Stop();
         stop.setId(c.getString(0));

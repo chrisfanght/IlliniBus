@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Requested Routes"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:text="Requested Routes"
+                android:textSize="15sp" />
 
 
             <android.support.v7.widget.CardView
@@ -23,27 +27,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:visibility="visible"
                 android:layout_margin="5dp"
-                android:elevation="3dp">
+                android:elevation="3dp"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/no_bus_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="15sp"
                         android:layout_marginBottom="10dp"
-                        android:text="No Bus Route Requested"/>
+                        android:text="No Bus Route Requested"
+                        android:textSize="15sp" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/notification"/>
+                        android:src="@drawable/notification" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -52,41 +58,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:foreground="?attr/selectableItemBackground"
-                android:visibility="gone"
                 android:layout_margin="5dp"
-                android:elevation="3dp">
+                android:elevation="3dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/route_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
+
                     <TextView
                         android:id="@+id/route_destination"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
+
                     <TextView
                         android:id="@+id/route_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="50sp"
-                        android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:layout_gravity="center"/>
+                        android:textSize="50sp"
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/requested_stop_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/requested_stop_name"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -97,10 +107,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Nearby Stops"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:text="Nearby Stops"
+                android:textSize="15sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/nearby_list"

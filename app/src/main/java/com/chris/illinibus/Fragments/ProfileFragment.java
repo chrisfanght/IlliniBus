@@ -17,6 +17,7 @@ import com.chris.illinibus.StartActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 /**
+ * Profile fragment for basic information of the current user
  * Created by Chris on 11/5/16.
  */
 

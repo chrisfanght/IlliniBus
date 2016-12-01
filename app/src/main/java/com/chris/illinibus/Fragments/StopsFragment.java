@@ -13,6 +13,7 @@ import com.chris.illinibus.IlliniBusApplication;
 import com.chris.illinibus.R;
 
 /**
+ * Stop fragment for list of all stops in CUMTD system
  * Created by Chris on 11/5/16.
  */
 
@@ -28,6 +29,9 @@ public class StopsFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Read stops information for the database and put into a list
+     */
     public void initRecyclerView() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(layoutManager);

@@ -29,10 +29,18 @@ public class NetworkService {
         mNetworkAPI = retrofit.create(NetworkAPI.class);
     }
 
+    /**
+     * Get network service for CUMTD API
+     * @return
+     */
     public BusAPI getBusAPI() {
         return mBusAPI;
     }
 
+    /**
+     * Get network service for backend API
+     * @return
+     */
     public NetworkAPI getNetworkAPI() {
         return mNetworkAPI;
     }
