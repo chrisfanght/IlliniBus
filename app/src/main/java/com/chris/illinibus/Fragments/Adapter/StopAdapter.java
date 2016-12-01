@@ -38,7 +38,6 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.ViewHolder> {
         mContext = viewGroup.getContext();
         View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.stop_card, viewGroup, false);
-        setOnClickListener(view, position);
         return new ViewHolder(view);
     }
 
@@ -50,22 +49,7 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.ViewHolder> {
         viewHolder.mStopImage.setImageResource(R.drawable.bus);
     }
 
-    private void setOnClickListener(View childView, final int position) {
-        childView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, StopDetailActivity.class);
-                Stop currStop = mStopList.get(position);
-                intent.putExtra("ID", currStop.getId());
-                intent.putExtra("NAME", currStop.getName());
-                intent.putExtra("LONGITUDE", currStop.getLongitude());
-                intent.putExtra("LATITUDE", currStop.getLatitude());
-                mContext.startActivity(intent);
-            }
-        });
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView mStopName, mStopDistance;
         public final ImageView mStopImage;
 
@@ -74,6 +58,18 @@ public class StopAdapter extends RecyclerView.Adapter<StopAdapter.ViewHolder> {
             mStopName = (TextView) v.findViewById(R.id.stop_name);
             mStopDistance = (TextView) v.findViewById(R.id.stop_distance);
             mStopImage = (ImageView) v.findViewById(R.id.stop_image);
+            v.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(mContext, StopDetailActivity.class);
+            Stop currStop = mStopList.get(getPosition());
+            intent.putExtra("ID", currStop.getId());
+            intent.putExtra("NAME", currStop.getName());
+            intent.putExtra("LONGITUDE", currStop.getLongitude());
+            intent.putExtra("LATITUDE", currStop.getLatitude());
+            mContext.startActivity(intent);
         }
     }
 }

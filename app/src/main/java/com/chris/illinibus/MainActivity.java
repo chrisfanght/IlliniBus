@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
             location.setLatitude(stop.getLatitude());
             location.setLongitude(stop.getLongitude());
             double distance = currLocation.distanceTo(location);
-            stop.setDistance(distance/METER_TO_MILE);
+            stop.setDistance(distance / METER_TO_MILE);
         }
         ((IlliniBusApplication) getApplication()).setStopList(stopList);
     }
 
     private Location getCurrentLocation() {
-        mLocationManager = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
+        mLocationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
         List<String> providers = mLocationManager.getProviders(true);
         Location bestLocation = null;
         for (String provider : providers) {

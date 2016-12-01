@@ -15,6 +15,7 @@ import retrofit2.http.POST;
 public interface NetworkAPI {
     /**
      * Sign up with google account to record information in the backend
+     *
      * @param user user detailed information
      * @return
      */
@@ -23,6 +24,7 @@ public interface NetworkAPI {
 
     /**
      * Request a notification for a certain bus
+     *
      * @param stopRequest detailed information about a bus
      * @return
      */

@@ -57,6 +57,7 @@ public class MapFragment extends Fragment {
 
         mMapView.getMapAsync(new OnMapReadyCallback() {
             public static final int ZOOM_LEVEL = 17;
+
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 mGoogleMap = googleMap;
@@ -74,9 +75,9 @@ public class MapFragment extends Fragment {
                             .getStopList();
                     for (Stop stop : stopList) {
                         mGoogleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(stop.getLatitude(), stop.getLongitude()))
-                        .draggable(false)
-                        .title(stop.getName()));
+                                .position(new LatLng(stop.getLatitude(), stop.getLongitude()))
+                                .draggable(false)
+                                .title(stop.getName()));
                     }
                     mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 }

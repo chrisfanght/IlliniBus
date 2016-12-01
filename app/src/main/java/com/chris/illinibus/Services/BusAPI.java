@@ -1,6 +1,6 @@
 package com.chris.illinibus.Services;
 
-import com.chris.illinibus.Models.Network.StopResponse;
+import com.chris.illinibus.Models.Network.RouteResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,9 +16,10 @@ public interface BusAPI {
 
     /**
      * Get bus departure time information based on StopId
+     *
      * @param stopId
      * @return
      */
-    @GET("GetStopTimesByStop?key=" + API_KEY)
-    Call<StopResponse> getStopTimes(@Query("stop_id") String stopId);
+    @GET("GetDeparturesByStop?key=" + API_KEY)
+    Call<RouteResponse> getStopTimes(@Query("stop_id") String stopId);
 }

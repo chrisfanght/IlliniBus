@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class NetworkService {
-    public static final String BUS_BASE_URL="https://developer.cumtd.com/api/v2.2/JSON/";
+    public static final String BUS_BASE_URL = "https://developer.cumtd.com/api/v2.2/JSON/";
     public static final String BACKEND_BASE_URL = "http://162.243.15.223:5000/";
 
     private BusAPI mBusAPI;
@@ -20,7 +20,7 @@ public class NetworkService {
                 .baseUrl(BUS_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        mBusAPI =  retrofit.create(BusAPI.class);
+        mBusAPI = retrofit.create(BusAPI.class);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BACKEND_BASE_URL)

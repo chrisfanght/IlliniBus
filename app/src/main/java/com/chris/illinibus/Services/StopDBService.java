@@ -41,6 +41,7 @@ public class StopDBService {
 
     /**
      * Get a list of stops from the database
+     *
      * @return
      */
     public List<Stop> getStops() {

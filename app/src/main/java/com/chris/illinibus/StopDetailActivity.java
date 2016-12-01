@@ -2,11 +2,14 @@ package com.chris.illinibus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.chris.illinibus.Models.Network.StopResponse;
+import com.chris.illinibus.Fragments.Adapter.RouteAdapter;
+import com.chris.illinibus.Models.Network.RouteResponse;
 import com.chris.illinibus.Models.Stop;
 import com.chris.illinibus.Services.BusAPI;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,11 +28,14 @@ import retrofit2.Response;
 /**
  * Full screen activity for stop details
  */
-public class StopDetailActivity extends AppCompatActivity implements Callback<StopResponse> {
+public class StopDetailActivity extends AppCompatActivity implements Callback<RouteResponse> {
+    private static final String FORMAT = "%02d:%02d";
+
     private Stop mStop;
     private MapView mMapView;
     private GoogleMap mGoogleMap;
     private RecyclerView mRecyclerView;
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,8 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<St
 
         mMapView = (MapView) findViewById(R.id.stop_map_view);
         mRecyclerView = (RecyclerView) findViewById(R.id.routes_recycler_view);
+        mImageView = (ImageView) findViewById(R.id.no_bus_image);
+        mImageView.setVisibility(View.GONE);
 
         initStopData();
         initLayout();
@@ -94,17 +102,25 @@ public class StopDetailActivity extends AppCompatActivity implements Callback<St
     private void initNetwork() {
         IlliniBusApplication myApplication = (IlliniBusApplication) getApplication();
         BusAPI busAPI = myApplication.getBusNetworkService();
-        Call<StopResponse> call = busAPI.getStopTimes(mStop.getId());
+        Call<RouteResponse> call = busAPI.getStopTimes(mStop.getId());
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<StopResponse> call, Response<StopResponse> response) {
-        Log.v("RESPONSE", response.body().getStopTimes().get(0).getArrivalTime());
+    public void onResponse(Call<RouteResponse> call, Response<RouteResponse> response) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        mRecyclerView.setLayoutManager(layoutManager);
+        if (response.body().getDepartures().isEmpty()) {
+            mImageView.setVisibility(View.VISIBLE);
+        } else {
+            mImageView.setVisibility(View.GONE);
+        }
+        RouteAdapter routeAdapter = new RouteAdapter(response.body().getDepartures(), mStop);
+        mRecyclerView.setAdapter(routeAdapter);
     }
 
     @Override
-    public void onFailure(Call<StopResponse> call, Throwable t){
+    public void onFailure(Call<RouteResponse> call, Throwable t) {
         Toast.makeText(StopDetailActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 

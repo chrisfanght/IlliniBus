@@ -2,6 +2,7 @@ package com.chris.illinibus;
 
 import android.app.Application;
 
+import com.chris.illinibus.Models.RouteRequest;
 import com.chris.illinibus.Models.Stop;
 import com.chris.illinibus.Services.BusAPI;
 import com.chris.illinibus.Services.NetworkAPI;
@@ -23,6 +24,7 @@ public class IlliniBusApplication extends Application {
     private List<Stop> mStopList;
     private List<Stop> mNearbyList;
     private NetworkService mNetworkService;
+    private RouteRequest mRouteRequest;
 
     @Override
     public void onCreate() {
@@ -71,20 +73,22 @@ public class IlliniBusApplication extends Application {
     }
 
     /**
+     * Get all information about stops in cumtd system
+     *
+     * @return a list of stops
+     */
+    public List<Stop> getStopList() {
+        return mStopList;
+    }
+
+    /**
      * Set the stop list data using query result from database
+     *
      * @param stopList stopList from database
      */
     public void setStopList(List<Stop> stopList) {
         mStopList = new ArrayList<>();
         mStopList.addAll(stopList);
-    }
-
-    /**
-     * Get all information about stops in cumtd system
-     * @return a list of stops
-     */
-    public List<Stop> getStopList() {
-        return mStopList;
     }
 
     public List<Stop> getNearbyStopList() {
@@ -107,5 +111,21 @@ public class IlliniBusApplication extends Application {
 
     public NetworkAPI getBackendNetworkService() {
         return mNetworkService.getNetworkAPI();
+    }
+
+    public boolean existsRouteRequest() {
+        return mRouteRequest != null;
+    }
+
+    public void cancelRouteRequest() {
+        mRouteRequest = null;
+    }
+
+    public RouteRequest getRouteRequest() {
+        return mRouteRequest;
+    }
+
+    public void setRouteRequest(RouteRequest routeRequest) {
+        mRouteRequest = routeRequest;
     }
 }

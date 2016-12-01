@@ -10,6 +10,8 @@ public class Trip {
     String trip_headsign;
     String route_id;
 
+    String direction;
+
     public String getTripId() {
         return trip_id;
     }
@@ -32,5 +34,13 @@ public class Trip {
 
     public void setRouteId(String routeId) {
         this.route_id = routeId;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 }
